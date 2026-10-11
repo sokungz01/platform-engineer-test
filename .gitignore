@@ -1,0 +1,7 @@
+*.pdf
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfplan
+.claude/
