@@ -56,9 +56,9 @@ variable "certificate_arn" {
 }
 
 variable "allowed_ingress_cidrs" {
-  description = "CIDR blocks allowed to reach the load balancer."
+  description = "CIDR blocks allowed to reach the load balancer. Defaults to none, so each environment must list its own allowed networks."
   type        = list(string)
-  default     = ["0.0.0.0/0"]
+  default     = []
 }
 
 variable "db_instance_class" {

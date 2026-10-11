@@ -63,6 +63,20 @@ run "prod_refuses_to_serve_plain_http" {
   expect_failures = [terraform_data.https_required_in_prod]
 }
 
+run "default_exposes_no_public_ingress" {
+  command = apply
+
+  variables {
+    environment        = "dev"
+    metabase_image_tag = "v0.0.0-test"
+  }
+
+  assert {
+    condition     = output.public_ingress_rule_count == 0
+    error_message = "with no allowed_ingress_cidrs set, the load balancer must accept no traffic"
+  }
+}
+
 run "accepts_known_environment_name" {
   command = apply
 

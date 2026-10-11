@@ -9,3 +9,8 @@ output "app_url" {
 output "app_security_group_id" {
   value = aws_security_group.app.id
 }
+
+output "public_ingress_rule_count" {
+  description = "Number of public ingress rules on the load balancer. Zero means no traffic is allowed."
+  value       = length(aws_vpc_security_group_ingress_rule.alb)
+}

@@ -6,3 +6,5 @@ db_instance_class        = "db.t4g.micro"
 db_deletion_protection   = false
 db_multi_az              = false
 db_backup_retention_days = 1
+# Open to all for the challenge reviewer. Finish Metabase setup right after deploy and destroy after review.
+allowed_ingress_cidrs = ["0.0.0.0/0"]

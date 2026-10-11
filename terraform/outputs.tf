@@ -11,3 +11,7 @@ output "db_address" {
   description = "Private DNS name of the PostgreSQL instance. Resolvable only inside the VPC."
   value       = module.database.address
 }
+
+output "public_ingress_rule_count" {
+  value = module.metabase.public_ingress_rule_count
+}
