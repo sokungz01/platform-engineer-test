@@ -5,5 +5,5 @@ crash.log
 *.tfplan
 .claude/
 .DS_Store
-20260331 Coraline Challenge _ Platform Engineer.pdf
 docs/
+*.pdf
