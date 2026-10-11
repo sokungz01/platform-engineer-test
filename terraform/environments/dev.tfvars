@@ -1,0 +1,8 @@
+environment              = "dev"
+vpc_cidr                 = "10.20.0.0/16"
+metabase_image_tag       = "REPLACE_WITH_PINNED_TAG_IN_TASK_6"
+metabase_desired_count   = 1
+db_instance_class        = "db.t4g.micro"
+db_deletion_protection   = false
+db_multi_az              = false
+db_backup_retention_days = 1
