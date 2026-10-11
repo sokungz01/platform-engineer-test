@@ -147,4 +147,10 @@ Terraform tests (offline):
 
 Mutation checks: I broke two security properties on purpose to confirm the tests catch them. A publicly accessible database fails `database_is_never_publicly_accessible`. A plain-text `MB_DB_PASS` fails `db_password_is_only_injected_as_a_secret`. Both were restored afterwards.
 
-Live deployment: **pending.** This section will be updated with the `curl` health check, screenshot, private-database checks, and destroy confirmation once the dev stack is deployed with AWS credentials.
+Live deployment (dev, `ap-southeast-2`, 11 Oct 2026):
+- `terraform apply`: 46 resources added (`docs/evidence/apply-output.txt`).
+- `GET /api/health` returned HTTP 200 with `{"status":"ok"}` (`docs/evidence/health-check.txt`). The Metabase welcome page loaded in a browser (`docs/images/1-metabase-welcome.png`).
+- Database private: `PubliclyAccessible: false`, `StorageEncrypted: true`, PostgreSQL 16.13 (`docs/evidence/rds-encryption.txt`). A connection from outside the VPC timed out (`docs/images/4.db-private.png`).
+- `terraform destroy` removed 46 resources (`docs/evidence/destroy-output.txt`). No load balancer, NAT gateway, or database remains.
+
+The full submission document, with each brief requirement mapped to its evidence, is in `docs/submission/Challenge-Submission.docx` and `.pdf`.
