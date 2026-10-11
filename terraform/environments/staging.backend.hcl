@@ -1,5 +1,5 @@
-bucket       = "coraline-metabase-tfstate-REPLACE_WITH_ACCOUNT_ID"
+bucket       = "coraline-metabase-tfstate-288229084944"
 key          = "metabase/staging/terraform.tfstate"
-region       = "ap-southeast-1"
+region       = "ap-southeast-2"
 encrypt      = true
 use_lockfile = true

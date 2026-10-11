@@ -17,7 +17,7 @@ variable "environment" {
 variable "aws_region" {
   description = "AWS region. Singapore is the nearest region to Bangkok."
   type        = string
-  default     = "ap-southeast-1"
+  default     = "ap-southeast-2"
 }
 
 variable "vpc_cidr" {

@@ -1,6 +1,6 @@
 environment              = "staging"
 vpc_cidr                 = "10.21.0.0/16"
-metabase_image_tag       = "REPLACE_WITH_PINNED_TAG_IN_TASK_6"
+metabase_image_tag       = "v0.64.1"
 metabase_desired_count   = 2
 db_instance_class        = "db.t4g.small"
 db_deletion_protection   = false

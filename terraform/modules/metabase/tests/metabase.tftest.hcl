@@ -3,13 +3,13 @@ mock_provider "aws" {
   # ARNs are passed into ARN-typed arguments elsewhere, so they need valid-looking defaults.
   mock_resource "aws_lb" {
     defaults = {
-      arn = "arn:aws:elasticloadbalancing:ap-southeast-1:123456789012:loadbalancer/app/test-alb/0123456789abcdef"
+      arn = "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:loadbalancer/app/test-alb/0123456789abcdef"
     }
   }
 
   mock_resource "aws_lb_target_group" {
     defaults = {
-      arn = "arn:aws:elasticloadbalancing:ap-southeast-1:123456789012:targetgroup/mb-0123456789abcdef/0123456789abcdef"
+      arn = "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/mb-0123456789abcdef/0123456789abcdef"
     }
   }
 
@@ -21,13 +21,13 @@ mock_provider "aws" {
 
   mock_resource "aws_ecs_task_definition" {
     defaults = {
-      arn = "arn:aws:ecs:ap-southeast-1:123456789012:task-definition/test-metabase:1"
+      arn = "arn:aws:ecs:ap-southeast-2:123456789012:task-definition/test-metabase:1"
     }
   }
 
   mock_resource "aws_secretsmanager_secret" {
     defaults = {
-      arn = "arn:aws:secretsmanager:ap-southeast-1:123456789012:secret:test-metabase-encryption-AbCdEf"
+      arn = "arn:aws:secretsmanager:ap-southeast-2:123456789012:secret:test-metabase-encryption-AbCdEf"
     }
   }
 }
@@ -44,7 +44,7 @@ variables {
   db_port                    = 5432
   db_name                    = "metabase"
   db_username                = "metabase"
-  db_password_secret_arn     = "arn:aws:secretsmanager:ap-southeast-1:123456789012:secret:test-db-password-AbCdEf"
+  db_password_secret_arn     = "arn:aws:secretsmanager:ap-southeast-2:123456789012:secret:test-db-password-AbCdEf"
   image_tag                  = "v0.0.0-test"
   cpu                        = 1024
   memory                     = 2048
@@ -108,7 +108,7 @@ run "https_with_redirect_when_certificate_given" {
   command = apply
 
   variables {
-    certificate_arn = "arn:aws:acm:ap-southeast-1:123456789012:certificate/abcd-1234"
+    certificate_arn = "arn:aws:acm:ap-southeast-2:123456789012:certificate/abcd-1234"
   }
 
   assert {

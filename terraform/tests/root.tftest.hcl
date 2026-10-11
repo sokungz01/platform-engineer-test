@@ -3,19 +3,19 @@ mock_provider "aws" {
   override_data {
     target = module.network.data.aws_availability_zones.available
     values = {
-      names = ["ap-southeast-1a", "ap-southeast-1b", "ap-southeast-1c"]
+      names = ["ap-southeast-2a", "ap-southeast-2b", "ap-southeast-2c"]
     }
   }
 
   mock_resource "aws_lb" {
     defaults = {
-      arn = "arn:aws:elasticloadbalancing:ap-southeast-1:123456789012:loadbalancer/app/test-alb/0123456789abcdef"
+      arn = "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:loadbalancer/app/test-alb/0123456789abcdef"
     }
   }
 
   mock_resource "aws_lb_target_group" {
     defaults = {
-      arn = "arn:aws:elasticloadbalancing:ap-southeast-1:123456789012:targetgroup/mb-0123456789abcdef/0123456789abcdef"
+      arn = "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/mb-0123456789abcdef/0123456789abcdef"
     }
   }
 
@@ -27,13 +27,13 @@ mock_provider "aws" {
 
   mock_resource "aws_ecs_task_definition" {
     defaults = {
-      arn = "arn:aws:ecs:ap-southeast-1:123456789012:task-definition/test-metabase:1"
+      arn = "arn:aws:ecs:ap-southeast-2:123456789012:task-definition/test-metabase:1"
     }
   }
 
   mock_resource "aws_secretsmanager_secret" {
     defaults = {
-      arn = "arn:aws:secretsmanager:ap-southeast-1:123456789012:secret:test-metabase-encryption-AbCdEf"
+      arn = "arn:aws:secretsmanager:ap-southeast-2:123456789012:secret:test-metabase-encryption-AbCdEf"
     }
   }
 }

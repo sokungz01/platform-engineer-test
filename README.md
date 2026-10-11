@@ -51,8 +51,8 @@ flowchart LR
 ```bash
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 BUCKET="metabase-tfstate-${ACCOUNT_ID}"
-aws s3api create-bucket --bucket "$BUCKET" --region ap-southeast-1 \
-  --create-bucket-configuration LocationConstraint=ap-southeast-1
+aws s3api create-bucket --bucket "$BUCKET" --region ap-southeast-2 \
+  --create-bucket-configuration LocationConstraint=ap-southeast-2
 aws s3api put-bucket-versioning --bucket "$BUCKET" --versioning-configuration Status=Enabled
 aws s3api put-public-access-block --bucket "$BUCKET" \
   --public-access-block-configuration BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true
@@ -118,7 +118,7 @@ terraform destroy -var-file=environments/dev.tfvars
 
 ## Assumptions
 
-- **Cloud:** AWS, region `ap-southeast-1`, chosen as the nearest region to Bangkok.
+- **Cloud:** AWS, region `ap-southeast-2` (Sydney). The Singapore region (`ap-southeast-1`) is denied for this account by an organization policy, so the deploy uses Sydney.
 - **Network:** one NAT gateway, for cost. Production should use one per availability zone.
 - **TLS:** HTTP by default. Set `certificate_arn` to serve HTTPS. Production refuses to plan without it.
 - **Ingress:** no CIDRs are allowed by default. Each environment sets its own. Dev is open to `0.0.0.0/0` for the challenge reviewer and should be destroyed after review. Staging and prod use the placeholder `203.0.113.0/24`, which must be replaced before applying.
